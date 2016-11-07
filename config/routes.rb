@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  
+
   resources :users do
     member do
       get :following, :followers
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
   resources :microposts
   resources :relationships, only: [:create, :destroy]
+
+  # 404ページ
+  get '*anything' => 'errors#routing_error'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
