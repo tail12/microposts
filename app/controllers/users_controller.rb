@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    # @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.page(params[:page])
   end
 
   def new
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    
+
     unless current_user?(@user)
       flash[:danger] = "You're not correct_user"
       redirect_to(root_url)
