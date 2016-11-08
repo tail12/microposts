@@ -15,8 +15,8 @@
       <h3>Micropost Feed</h3>
       <%= paginate @feed_items %>
       <%= render 'shared/feed' %>
+      <%= paginate @feed_items %>
     </div>
-    <%= paginate @feed_items %>
   </div>
 <% else %>
   <div class="center jumbotron">
