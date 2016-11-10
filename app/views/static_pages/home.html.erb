@@ -13,9 +13,10 @@
     </aside>
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
-      <%= paginate @feed_items %>
       <%= render 'shared/feed' %>
-      <%= paginate @feed_items %>
+      <% if @feed_items.present? %>
+        <%= paginate @feed_items %>
+      <% end %>
     </div>
   </div>
 <% else %>

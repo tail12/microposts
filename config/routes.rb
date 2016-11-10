@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   # 404ページ
-  get '*anything' => 'errors#routing_error'
+  # get '*anything' => 'errors#routing_error'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
